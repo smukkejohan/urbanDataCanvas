@@ -15,44 +15,39 @@ using namespace wng;
 
 struct DataPoint {
     
-    
     int second;
-    string object;
+    string object; //can be Buses,Cars,Trucks,Pedestrians
     string timestamp;
     string station;
     string count;
-    
 };
 
 class MarketData {
 public:
     
     ofxCsv csv;
-    
     vector<DataPoint> data;
     
     void importDay(string _date="2014-01-20") { // importDay(day)
+        
+        data.clear();
         
         ofLogNotice("Data", "Loading from CSV ...");
         
         // Load a CSV File.
         csv.loadFile(ofToDataPath("urban_data_v2.csv"));
         
-        
         for(int i=1;i<csv.data.size(); i++) {
-            
-            // sort out 1 day
             
             // Data looks like this:
             // Timestamp,Station,Object,Count
             // 2014-01-20 00:00:00-08:00,Embarcadero,Buses,0
             
-            
             string timestamp = csv.data[i][0];
             
             string date = ofSplitString(timestamp, " ")[0];
             
-            
+            // sort out 1 day
             if(_date == date) {
                 
                 DataPoint dP;
@@ -76,11 +71,6 @@ public:
                 
             }
         
-            
-            
-
-            
-            
         }
         
         ofLogNotice("Data",ofToString(data.size()) + " data entries loaded.");
