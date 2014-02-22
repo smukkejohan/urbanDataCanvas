@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "data.h"
+
 
 class testApp : public ofBaseApp{
 	public:
@@ -17,5 +19,10 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-
+    
+        MarketData mdata;
+    
+    
+    
+        
 };
