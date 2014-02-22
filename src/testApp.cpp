@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     
-    mdata.import();
+    mdata.importDay();
     
 }
 
