@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "data.h"
 
-
 class testApp : public ofBaseApp{
 	public:
 		void setup();
@@ -22,7 +21,6 @@ class testApp : public ofBaseApp{
     
         MarketData mdata;
     
-    
-    
+        
         
 };

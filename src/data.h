@@ -10,8 +10,10 @@
 
 #include "ofMain.h"
 #include "ofxCsv.h"
+#include "ofxTimeline.h"
 
 using namespace wng;
+
 
 struct DataPoint {
     
@@ -20,6 +22,7 @@ struct DataPoint {
     string timestamp;
     string station;
     string count;
+    
 };
 
 class MarketData {
@@ -27,6 +30,40 @@ public:
     
     ofxCsv csv;
     vector<DataPoint> data;
+    ofxTimeline timeline;
+    
+    int simulationSeconds = 600;
+    int realSeconds = 86400;
+    
+    
+    int getRealCurrentTime() {
+        return round( timeline.getCurrentTime()/simulationSeconds*realSeconds);
+    };
+    
+    void setup(){
+    
+        ofxTimeline::removeCocoaMenusFromGlut("AllTracksExample");
+        timeline.setup();
+        timeline.setDurationInSeconds(simulationSeconds);
+    
+    };
+    
+    void update(){
+    
+        
+        
+    };
+    
+    void draw(){
+        
+        timeline.draw();
+        
+        
+        ofDrawBitmapString("Real time of day in seconds: " + ofToString(getRealCurrentTime()), 10,200);
+        
+        
+        
+    };
     
     void importDay(string _date="2014-01-20") { // importDay(day)
         
