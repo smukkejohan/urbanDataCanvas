@@ -4,8 +4,10 @@ int counter;
 
 
 void setup() {
-  size(1920, 1080);
-  table = loadTable("urban_data.csv", "header");
+  size(1920/2, 1080/2);
+  
+  println("Loading data...");
+  table = loadTable("urban_data_v2.csv", "header");
   println(table.getRowCount() + " total rows in table");
   
   for (TableRow row : table.rows()) {
@@ -15,8 +17,7 @@ void setup() {
     String object = row.getString("Object");
     int count = row.getInt("Count");
     
-    
-    int[] dateTime = int(splitTokens(timeStamp, "- :"));
+    int[] dateTime = int(splitTokens(time, "- :"));
     
     int year = dateTime[0];
     int month = dateTime[1];
@@ -24,8 +25,14 @@ void setup() {
     
     int hour = dateTime[3];
     int minute = dateTime[4];
-    int second = dateTime[5];
-    
+    int second = dateTime[5];  
   }
   
 }
+
+
+void draw() {
+  background(0);
+}
+
+
