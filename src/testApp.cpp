@@ -6,7 +6,7 @@ void testApp::setup(){
     
     mdata.setup();
     mdata.importDay();
-    
+
 }
 
 //--------------------------------------------------------------
@@ -17,7 +17,6 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    
     mdata.draw();
 }
 

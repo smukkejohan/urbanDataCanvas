@@ -20,7 +20,4 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         MarketData mdata;
-    
-        
-        
 };
