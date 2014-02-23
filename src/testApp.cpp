@@ -5,7 +5,7 @@
 void testApp::setup(){
     
     mdata.setup();
-    mdata.importDay();
+    mdata.importDay("2014-01-22");
 
 }
 

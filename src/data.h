@@ -67,7 +67,7 @@ public:
         ofPushMatrix();
         ofTranslate(10,20);
         
-        ofDrawBitmapString("Minute of day: " + ofToString(getRealCurrentMinute()), 10,400);
+        ofDrawBitmapString("Day: " + date + ". Minute of day: " + ofToString(getRealCurrentMinute()), 10,400);
         
         for(int l=0;l<locationNum;l++) {
             
@@ -110,7 +110,7 @@ public:
             // 2014-01-20 00:00:00-08:00,Embarcadero,Buses,0
             
             string timestamp = csv.data[i][0];
-            string date = ofSplitString(timestamp, " ")[0];
+            date = ofSplitString(timestamp, " ")[0];
             
             // sort out 1 day
             if(_date == date) {
@@ -160,7 +160,12 @@ public:
         cout << "bang fired!" << args.flag << endl;
     };
     
+    string getDate() {
+        return date;
+    }
     
+private:
+    string date;
     
     
 };
